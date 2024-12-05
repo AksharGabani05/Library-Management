@@ -5,7 +5,7 @@ const Categories = () => {
     const [selectedCategory, setSelectedCategory] = useState("");
     const navigate = useNavigate();
 
-    // List of categories
+  
     const categories = [
         { name: "Science", value: "/books/science" },
         { name: "Fiction", value: "/books/fiction" },
@@ -14,12 +14,11 @@ const Categories = () => {
         { name: "Crime", value: "/books/crime" },
     ];
 
-    // Handle category selection
     const handleCategoryChange = (event) => {
         setSelectedCategory(event.target.value);
     };
 
-    // Navigate to the selected category
+
     const handleNavigate = () => {
         if (selectedCategory) {
             navigate(selectedCategory);
@@ -33,7 +32,7 @@ const Categories = () => {
             <h2 className="font-bold text-4xl mb-8 text-gray-900">Browse Categories</h2>
 
             <div className="flex flex-col items-center w-full max-w-md">
-                {/* Dropdown */}
+                
                 <select
                     value={selectedCategory}
                     onChange={handleCategoryChange}
@@ -49,7 +48,7 @@ const Categories = () => {
                     ))}
                 </select>
 
-                {/* Navigate Button */}
+                
                 <button
                     onClick={handleNavigate}
                     className="px-6 py-3 bg-blue-600 text-white font-medium text-lg rounded-lg shadow-md hover:bg-blue-700 transition duration-300"

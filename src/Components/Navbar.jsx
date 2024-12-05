@@ -6,11 +6,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false); // For mobile menu
-  const [isSignupOpen, setIsSignupOpen] = useState(false); // For signup modal
-  const [isSignedUp, setIsSignedUp] = useState(false); // For signup status
-  const [username, setUsername] = useState(""); // Username input state
-  const [password, setPassword] = useState(""); // Password input state
+  const [isOpen, setIsOpen] = useState(false); 
+  const [isSignupOpen, setIsSignupOpen] = useState(false); 
+  const [isSignedUp, setIsSignedUp] = useState(false);
+  const [username, setUsername] = useState(""); 
+  const [password, setPassword] = useState(""); 
 
   const handleSignup = () => {
     if (!username || !password) {
@@ -18,17 +18,17 @@ const Navbar = () => {
       return;
     }
 
-    // Store signup data in localStorage
+    
     localStorage.setItem(
       "signupData",
       JSON.stringify({ username, password })
     );
 
-    // Simulate successful signup
+    
     setIsSignedUp(true);
     setIsSignupOpen(false);
 
-    // Show toast notification
+    
     toast.success("Signup successful! Welcome to Books-Library!");
   };
 
@@ -36,10 +36,10 @@ const Navbar = () => {
     <>
       <nav className="w-full bg-gradient-to-r from-indigo-600 to-blue-500 sticky top-0 z-20 shadow-md transition-shadow">
         <div className="container mx-auto flex justify-between items-center p-5">
-          {/* Logo */}
+          
           <h2 className="text-3xl font-bold text-white cursor-pointer">Books-Library</h2>
 
-          {/* Desktop Menu */}
+         
           <div className="hidden md:flex items-center gap-8">
             <input
               type="text"
@@ -59,7 +59,7 @@ const Navbar = () => {
                 </li>
               )}
             </ul>
-            {/* Signup Button */}
+           
             {!isSignedUp && (
               <button
                 onClick={() => setIsSignupOpen(true)}
@@ -70,7 +70,7 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* Mobile Menu Icon */}
+          
           <div className="md:hidden">
             <HiOutlineMenu
               className="w-8 h-8 text-white cursor-pointer"
@@ -79,7 +79,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        
         <div
           className={`md:hidden absolute top-0 left-0 w-full bg-gradient-to-r from-indigo-700 to-blue-600 text-white p-5 transform transition-transform duration-300 ${
             isOpen ? "translate-y-0" : "-translate-y-full"
@@ -105,7 +105,7 @@ const Navbar = () => {
               </li>
             )}
           </ul>
-          {/* Signup Button for Mobile */}
+          
           {!isSignedUp && (
             <button
               onClick={() => setIsSignupOpen(true)}
@@ -116,7 +116,7 @@ const Navbar = () => {
           )}
         </div>
 
-        {/* Signup Modal */}
+        
         {isSignupOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-30">
             <div className="bg-white p-6 rounded-lg shadow-lg w-80">
@@ -152,7 +152,7 @@ const Navbar = () => {
         )}
       </nav>
 
-      {/* Toast Notification Container */}
+      
       <ToastContainer position="top-right" autoClose={3000} />
     </>
   );
